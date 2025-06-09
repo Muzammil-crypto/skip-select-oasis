@@ -2,6 +2,7 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
 import { selectSkip } from "../features/skips/skipSlice";
 import { Check, Shield, Weight } from "lucide-react";
+import { imageMap } from "../utils/consatants";
 
 const SkipCard = ({ skip }) => {
   const dispatch = useAppDispatch();
@@ -26,7 +27,8 @@ const SkipCard = ({ skip }) => {
       <div
         className="absolute inset-0 bg-no-repeat bg-center transition-all duration-300 group-hover:scale-105 opacity-50"
         style={{
-          backgroundImage: `url('https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/4-yarder-skip.jpg')`,
+          // backgroundImage: `url('https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/4-yarder-skip.jpg')`,
+          backgroundImage: `url('https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/${imageMap[skip.size]}')`,
           backgroundSize: "100% 100%",
         }}
       />
