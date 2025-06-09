@@ -1,25 +1,14 @@
-
-import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { fetchSkipsAsync } from '../features/skips/skipSlice';
 import SkipCard from '../components/SkipCard';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 import Stepper from '../components/Stepper';
+import { useSkips } from '../hooks/use-skips';
+import { useAppSelector } from '../hooks/redux';
 
 const ChooseSkip = () => {
-  const dispatch = useAppDispatch();
-  const { skips, loading, error, selectedSkipId } = useAppSelector((state) => state.skips);
-
-  useEffect(() => {
-    // Fetch skips when component mounts
-    if (skips.length === 0) {
-      dispatch(fetchSkipsAsync());
-    }
-  }, [dispatch, skips.length]);
-
-  const selectedSkip = skips.find(skip => skip.id === selectedSkipId);
-
+  const { skips, loading, error, fetchSkips } = useSkips();
+const selectedSkipId = useAppSelector((state) => state.skips.selectedSkipId);
+const selectedSkip = skips.find((skip) => skip.id === selectedSkipId);
   return (
     <div className="min-h-screen bg-background">
       {/* Stepper */}

@@ -1,9 +1,12 @@
-
-import { configureStore } from '@reduxjs/toolkit';
-import skipReducer from '../features/skips/skipSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import skipReducer from "../features/skips/skipSlice";
 
 export const store = configureStore({
   reducer: {
     skips: skipReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
