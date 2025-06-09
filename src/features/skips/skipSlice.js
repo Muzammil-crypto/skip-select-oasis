@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { skipService } from "../../services/skipService";
+import { handleApiError } from "../../utils/error-handler";
 
 const initialState = {
   skips: [],
@@ -11,20 +12,16 @@ const initialState = {
 // Fetch skips async thunk
 export const fetchSkipsAsync = createAsyncThunk(
   "skips/fetchSkips",
-  async ({ forceRefresh = false } = {}, { getState, rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
-      const state = getState().skips;
-      const now = Date.now();
       const response = await skipService.getSkips();
-      console.log("Fetched skips:", response);
       return {
         data: response,
       };
     } catch (error) {
-      return rejectWithValue({
-        message: error.message || "Failed to fetch skips",
-        type: error.type || "UNKNOWN_ERROR",
-      });
+      const message = handleApiError(error);
+
+      return rejectWithValue(message);
     }
   }
 );
