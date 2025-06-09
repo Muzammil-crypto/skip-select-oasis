@@ -10,7 +10,7 @@ function App() {
   return (
     <Provider store={store}>
       <TooltipProvider>
-        <div className="min-h-screen bg-gray-900 text-white">
+        <div className="min-h-screen bg-background text-foreground dark">
           <Toaster />
           <Sonner />
           <ChooseSkip />
