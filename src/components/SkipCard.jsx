@@ -24,9 +24,9 @@ const SkipCard = ({ skip }) => {
       onClick={handleSelect}
     >
       <div
-        className="absolute inset-0 bg-no-repeat bg-center transition-all duration-300 group-hover:scale-105 opacity-100"
+        className="absolute inset-0 bg-no-repeat bg-center transition-all duration-300 group-hover:scale-105 opacity-50"
         style={{
-          backgroundImage: `url('https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/12-yarder-skip.jpg')`,
+          backgroundImage: `url('https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/4-yarder-skip.jpg')`,
           backgroundSize: "100% 100%",
         }}
       />
