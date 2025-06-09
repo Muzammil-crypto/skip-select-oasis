@@ -1,7 +1,7 @@
-import React from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { selectSkip } from '../features/skips/skipSlice';
-import { Check, Shield, Weight } from 'lucide-react';
+import React from "react";
+import { useAppDispatch, useAppSelector } from "../hooks/redux";
+import { selectSkip } from "../features/skips/skipSlice";
+import { Check, Shield, Weight } from "lucide-react";
 
 const SkipCard = ({ skip }) => {
   const dispatch = useAppDispatch();
@@ -16,9 +16,21 @@ const SkipCard = ({ skip }) => {
   return (
     <div
       className={`relative w-full max-w-md bg-card backdrop-blur-sm rounded-lg border-2 transition-all duration-300 group cursor-pointer overflow-hidden mb-4 mt-4
-        ${isSelected ? 'border-primary/60 shadow-lg shadow-primary/20 ring-2 ring-primary/20' : 'border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10'}`}
+        ${
+          isSelected
+            ? "border-primary/60 shadow-lg shadow-primary/20 ring-2 ring-primary/20"
+            : "border-border hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
+        }`}
       onClick={handleSelect}
     >
+      <div
+        className="absolute inset-0 bg-no-repeat bg-center transition-all duration-300 group-hover:scale-105 opacity-100"
+        style={{
+          backgroundImage: `url('https://yozbrydxdlcxghkphhtq.supabase.co/storage/v1/object/public/skips/skip-sizes/12-yarder-skip.jpg')`,
+          backgroundSize: "100% 100%",
+        }}
+      />
+
       {isSelected && (
         <div className="absolute -top-4 -right-4 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg z-10">
           <Check className="w-4 h-4" />
@@ -26,20 +38,24 @@ const SkipCard = ({ skip }) => {
       )}
 
       {(skip.size === 6 || skip.size === 8) && (
-        <div className="absolute top-2 left-2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+        <div className="absolute top-2 left-2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold z-10">
           Popular
         </div>
       )}
 
-      <div className="p-6 flex flex-col gap-6">
+      <div className="p-6 flex flex-col gap-6 relative z-10">
         {/* Header: Size and Price */}
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-3xl font-bold text-foreground">{skip.size} Yard</h3>
+            <h3 className="text-3xl font-bold text-foreground">
+              {skip.size} Yard
+            </h3>
             <p className="text-sm text-muted-foreground mt-1">Skip Bin</p>
           </div>
           <div className="text-right">
-            <div className="text-3xl font-extrabold text-foreground">£{finalPrice}</div>
+            <div className="text-3xl font-extrabold text-foreground">
+              £{finalPrice}
+            </div>
             <div className="text-xs text-muted-foreground mt-1">
               inc. VAT ({skip.vat}%)
             </div>
@@ -78,15 +94,15 @@ const SkipCard = ({ skip }) => {
         <button
           className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 mt-4 ${
             isSelected
-              ? 'bg-primary text-primary-foreground shadow-md shadow-primary/30'
-              : 'bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-md hover:shadow-primary/30'
+              ? "bg-primary text-primary-foreground shadow-md shadow-primary/30"
+              : "bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-md hover:shadow-primary/30"
           }`}
           onClick={(e) => {
             e.stopPropagation();
             handleSelect();
           }}
         >
-          {isSelected ? 'Selected' : 'Select This Skip'}
+          {isSelected ? "Selected" : "Select This Skip"}
         </button>
       </div>
     </div>
