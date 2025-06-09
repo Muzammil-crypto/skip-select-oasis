@@ -66,7 +66,10 @@ const ChooseSkip = () => {
                     selectedSkip.price_before_vat * (1 + selectedSkip.vat / 100)
                   )} for {selectedSkip.hire_period_days} days
                 </p>
-                <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
+                <button 
+                  onClick={handleContinueBooking}
+                  className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
+                >
                   Continue to Booking
                 </button>
               </div>
@@ -80,6 +83,13 @@ const ChooseSkip = () => {
           </div>
         )}
       </div>
+
+      {/* Success Modal */}
+      <BookingSuccessModal 
+        open={showSuccessModal} 
+        onOpenChange={setShowSuccessModal}
+        selectedSkip={selectedSkip}
+      />
     </div>
   );
 };
