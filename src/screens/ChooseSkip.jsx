@@ -1,15 +1,16 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchSkipsAsync } from '../features/skips/skipSlice';
 import SkipCard from '../components/SkipCard';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
 import Stepper from '../components/Stepper';
+import BookingSuccessModal from '../components/BookingSuccessModal';
 
 const ChooseSkip = () => {
   const dispatch = useAppDispatch();
   const { skips, loading, error, selectedSkipId } = useAppSelector((state) => state.skips);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   useEffect(() => {
     // Fetch skips when component mounts
@@ -19,6 +20,10 @@ const ChooseSkip = () => {
   }, [dispatch, skips.length]);
 
   const selectedSkip = skips.find(skip => skip.id === selectedSkipId);
+
+  const handleContinueBooking = () => {
+    setShowSuccessModal(true);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -62,7 +67,10 @@ const ChooseSkip = () => {
                 <p className="text-muted-foreground mb-4">
                   £{Math.round(selectedSkip.price_before_vat * (1 + selectedSkip.vat / 100))} for {selectedSkip.hire_period_days} days
                 </p>
-                <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30">
+                <button 
+                  onClick={handleContinueBooking}
+                  className="bg-primary text-primary-foreground px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors shadow-lg shadow-primary/30"
+                >
                   Continue to Booking
                 </button>
               </div>
@@ -76,6 +84,13 @@ const ChooseSkip = () => {
           </div>
         )}
       </div>
+
+      {/* Success Modal */}
+      <BookingSuccessModal 
+        open={showSuccessModal} 
+        onOpenChange={setShowSuccessModal}
+        selectedSkip={selectedSkip}
+      />
     </div>
   );
 };
