@@ -16,7 +16,7 @@ We recommend using Node.js 18.x or 20.x for optimal compatibility.
 git clone <YOUR_GIT_URL>
 
 # Navigate to project directory  
-cd <YOUR_PROJECT_NAME>
+cd <PROJECT_NAME>
 
 # Install dependencies
 npm install
@@ -66,7 +66,6 @@ src/
 
 - **React 18** - UI library
 - **Redux Toolkit** - State management
-- **TypeScript** - Type safety
 - **Tailwind CSS** - Styling
 - **Axios** - HTTP client
 - **Vite** - Build tool
