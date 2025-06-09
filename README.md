@@ -1,15 +1,16 @@
-
 # Skip Hire Selection App
 
 A modern, responsive React web application for selecting skip sizes built with Redux Toolkit, TypeScript, and Tailwind CSS.
 
-## Node Version Required
+## 🚀 Quick Start
+
+### Prerequisites
 
 **Node.js version: 18.x or higher**
 
 We recommend using Node.js 18.x or 20.x for optimal compatibility.
 
-## Quick Start
+### Installation
 
 ```bash
 # Clone the repository
@@ -27,7 +28,7 @@ npm run dev
 
 The app will be available at `http://localhost:8080`
 
-## Features
+## ✨ Features
 
 - **Modern UI Design**: Clean, card-based layout with smooth animations
 - **Redux Toolkit**: Centralized state management with async thunks
@@ -37,9 +38,10 @@ The app will be available at `http://localhost:8080`
 - **Loading States**: Smooth loading indicators
 - **Accessibility**: Semantic HTML and proper ARIA labels
 
-## Architecture
+## 🏗️ Architecture
 
 ### Folder Structure
+
 ```
 src/
 ├── components/       # Reusable UI components
@@ -60,17 +62,23 @@ src/
 │   └── index.ts
 └── pages/            # Route pages
     └── Index.tsx
+└── utils/            # Utilities
+    └── constants.js
+└── api/            # Axios Client / Endpoints
+    └── apiClient.js
+    └── endPoints.js
 ```
 
-### Technologies Used
+## 🛠️ Technologies Used
 
 - **React 18** - UI library
 - **Redux Toolkit** - State management
 - **Tailwind CSS** - Styling
 - **Axios** - HTTP client
 - **Vite** - Build tool
+- **TypeScript** - Type safety
 
-## State Management
+## 🔄 State Management
 
 The app uses Redux Toolkit for state management with the following structure:
 
@@ -78,23 +86,40 @@ The app uses Redux Toolkit for state management with the following structure:
 - **Async Thunks**: Handles API calls with proper loading and error handling
 - **Type Safety**: Full TypeScript integration with Redux
 
-## API Integration
+## 🌐 API Integration
 
-Currently uses mock data for development. To integrate with a real API:
+Using Endpoint provided by the REMWaste
 
-1. Update the `baseURL` in `src/services/api.ts`
-2. Uncomment the API call in `src/services/skipService.ts`
-3. Remove or comment out the mock data
-
-## Skip Selection Features
+## 🎯 Skip Selection Features
 
 - **Price Calculation**: Automatically calculates final price including VAT
 - **Visual Selection**: Clear visual feedback for selected items
 - **Feature Tags**: Displays skip capabilities (road permitted, heavy waste)
 - **Responsive Cards**: Optimized for all screen sizes
 - **Selection Summary**: Shows selected skip details
+- **Selection Confirmation**: Shows selected skip details through the Confirmation Modal
 
-## Development
+## 💡 Development Approach
+
+This project is designed with maintainability, scalability, and user experience in mind:
+
+### Design Principles
+
+- **Component-based architecture**: UI built with reusable components for easy maintenance
+- **Redux Toolkit**: Predictable centralized state management and async API handling
+- **TypeScript**: Ensures type safety, improving code reliability and collaboration
+- **Tailwind CSS**: Utility-first, responsive styling with mobile-first approach
+- **API abstraction**: All API calls handled in services layer for easy backend switching
+- **Loading and error handling**: Global indicators and retry options for better UX
+- **Accessibility**: Semantic HTML and ARIA attributes for compliance
+
+### Development Features
+
+- **Vite**: Fast hot reloading and optimized builds
+- **Clear folder structure**: Modular organization with Redux slices
+- **Mock data support**: Enables offline development and easy API transition
+
+## 🚀 Development Commands
 
 ```bash
 # Install dependencies
@@ -110,21 +135,35 @@ npm run build
 npm run preview
 ```
 
-## Deployment
-https://waste-skip-eight.vercel.app/
+## 🌍 Deployment
+
+**Live Demo**: [https://waste-skip-eight.vercel.app/](https://waste-skip-eight.vercel.app/)
+
+### Deploy Your Own
 
 1. Run `npm run build`
 2. Deploy the `dist` folder to your hosting provider
-3. Configure your hosting to serve `index.html` for all routes
+3. Configure hosting to serve `index.html` for all routes
 
-## Contributing
+## 🤝 Contributing
 
-1. Follow the existing code structure and patterns
-2. Use TypeScript for all new components
-3. Follow the component naming convention
-4. Add proper error handling for new features
-5. Ensure responsive design for all new UI elements
+We welcome contributions! Please follow these guidelines:
 
-## License
+- Follow existing code structure and patterns
+- Use TypeScript for all new components
+- Follow the component naming convention
+- Add proper error handling for new features
+- Ensure responsive design for all new UI elements
 
-This project is licensed under the MIT License.
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🔗 Links
+
+- [Live Demo](https://waste-skip-eight.vercel.app/)
+- [Report Issues](https://github.com/Muzammil-crypto/skip-select-oasis/issues)
+
+---
+
+**Built with ❤️ using React, Redux Toolkit, and TypeScript**
