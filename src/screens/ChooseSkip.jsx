@@ -4,11 +4,20 @@ import ErrorMessage from '../components/ErrorMessage';
 import Stepper from '../components/Stepper';
 import { useSkips } from '../hooks/use-skips';
 import { useAppSelector } from '../hooks/redux';
+import BookingSuccessModal from '../components/BookingSuccessModal';
+import { useState } from 'react';
 
 const ChooseSkip = () => {
   const { skips, loading, error } = useSkips();
   const selectedSkipId = useAppSelector((state) => state.skips.selectedSkipId);
   const selectedSkip = skips.find((skip) => skip.id === selectedSkipId);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+
+  const handleContinueBooking = () => {
+    if (selectedSkip) {
+      setShowSuccessModal(true);
+    }
+  };
 
   if (loading) {
     return (
@@ -85,7 +94,7 @@ const ChooseSkip = () => {
       </div>
 
       {/* Success Modal */}
-      <BookingSuccessModal 
+      <BookingSuccessModal
         open={showSuccessModal} 
         onOpenChange={setShowSuccessModal}
         selectedSkip={selectedSkip}

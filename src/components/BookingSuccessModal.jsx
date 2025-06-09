@@ -92,15 +92,9 @@ const BookingSuccessModal = ({ open, onOpenChange, selectedSkip }) => {
         <div className="flex gap-3 mt-6">
           <button
             onClick={() => onOpenChange(false)}
-            className="flex-1 bg-muted text-muted-foreground px-4 py-2 rounded-lg font-medium hover:bg-muted/80 transition-colors"
-          >
-            Close
-          </button>
-          <button
-            onClick={() => onOpenChange(false)}
             className="flex-1 bg-primary text-primary-foreground px-4 py-2 rounded-lg font-medium hover:bg-primary/90 transition-colors"
           >
-            View Booking
+            Close
           </button>
         </div>
       </DialogContent>
