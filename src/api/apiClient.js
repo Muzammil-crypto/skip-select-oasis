@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Create axios instance with base configuration
 const apiClient = axios.create({
   baseURL: "https://app.wewantwaste.co.uk"|| '',
   timeout: 10000, // 10 seconds
@@ -9,13 +8,10 @@ const apiClient = axios.create({
   },
 });
 
-// Request interceptor - Add logging and performance monitoring
 apiClient.interceptors.request.use(
   (config) => {
-    // Add request timestamp for performance monitoring
     config.metadata = { startTime: new Date() };
 
-    // Log request in development
     if (import.meta.env.NODE_ENV === 'development') {
       console.log(`🚀 ${config.method?.toUpperCase()} ${config.url}`);
     }
@@ -28,14 +24,11 @@ apiClient.interceptors.request.use(
   }
 );
 
-// Response interceptor - Handle errors and logging
 apiClient.interceptors.response.use(
   (response) => {
-    // Calculate request duration
     const endTime = new Date();
     const duration = endTime.getTime() - response.config.metadata.startTime.getTime();
 
-    // Log response in development
     if (import.meta.env.NODE_ENV === 'development') {
       console.log(`${response.config.method?.toUpperCase()} ${response.config.url} (${duration}ms)`);
     }
@@ -43,7 +36,6 @@ apiClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    // Handle network errors
     if (!error.response) {
       console.error('Network Error:', error.message);
       return Promise.reject({
@@ -52,7 +44,6 @@ apiClient.interceptors.response.use(
       });
     }
 
-    // Handle different HTTP error codes
     const errorResponse = {
       status: error.response.status,
       message: error.response.data?.message || error.message,
