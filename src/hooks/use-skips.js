@@ -1,10 +1,10 @@
 import { useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { fetchSkipsAsync } from '../features/skips/skipSlice';
+import { useAppDispatch, useAppSelector } from './redux';
 
 export const useSkips = () => {
-  const dispatch = useDispatch();
-  const { skips, loading, error } = useSelector((state) => state.skips);
+  const dispatch = useAppDispatch();
+  const { skips, loading, error } = useAppSelector((state) => state.skips);
 
   const fetchSkips = useCallback(() => {
     dispatch(fetchSkipsAsync());
