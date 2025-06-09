@@ -28,12 +28,12 @@ const ChooseSkip = () => {
       {/* Header */}
       <div className="bg-card/50 backdrop-blur-sm border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-4">
+            <h1 className="text-4xl sm:text-4xl font-bold text-foreground mb-2 mt-4">
               Choose Your Skip Size
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Select the skip size that best suits your needs
+              Select the skip size that best suits your needs, whether it's for a small home renovation or a large construction project.
             </p>
           </div>
         </div>

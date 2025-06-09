@@ -38,7 +38,7 @@ const Stepper = () => {
                 <step.icon className="w-3 h-3 sm:w-5 sm:h-5" />
               </div>
               <span
-                className={`mt-1 sm:mt-2 text-xs sm:text-sm font-medium text-center max-w-16 sm:max-w-none ${
+                className={`mt-2 sm:mt-2 text-xs sm:text-sm font-medium text-center max-w-16 sm:max-w-none ${
                   step.completed || step.current
                     ? 'text-foreground'
                     : 'text-muted-foreground'
