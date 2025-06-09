@@ -111,8 +111,7 @@ npm run preview
 ```
 
 ## Deployment
-
-The app can be deployed to any static hosting service:
+https://waste-skip-eight.vercel.app/
 
 1. Run `npm run build`
 2. Deploy the `dist` folder to your hosting provider
