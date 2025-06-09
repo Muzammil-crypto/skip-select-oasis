@@ -1,73 +1,132 @@
-# Welcome to your Lovable project
 
-## Project info
+# Skip Hire Selection App
 
-**URL**: https://lovable.dev/projects/57683713-d3d4-429a-8c2c-3ce962c0100b
+A modern, responsive React web application for selecting skip sizes built with Redux Toolkit, TypeScript, and Tailwind CSS.
 
-## How can I edit this code?
+## Node Version Required
 
-There are several ways of editing your application.
+**Node.js version: 18.x or higher**
 
-**Use Lovable**
+We recommend using Node.js 18.x or 20.x for optimal compatibility.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/57683713-d3d4-429a-8c2c-3ce962c0100b) and start prompting.
+## Quick Start
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to project directory  
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will be available at `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Features
 
-**Use GitHub Codespaces**
+- **Modern UI Design**: Clean, card-based layout with smooth animations
+- **Redux Toolkit**: Centralized state management with async thunks
+- **TypeScript**: Full type safety throughout the application
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Error Handling**: Comprehensive error states with retry functionality
+- **Loading States**: Smooth loading indicators
+- **Accessibility**: Semantic HTML and proper ARIA labels
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Architecture
 
-## What technologies are used for this project?
+### Folder Structure
+```
+src/
+├── components/       # Reusable UI components
+│   ├── SkipCard.tsx
+│   ├── Loader.tsx
+│   └── ErrorMessage.tsx
+├── features/         # Redux slices and logic
+│   └── skips/
+│       └── skipSlice.ts
+├── hooks/            # Custom hooks
+│   └── redux.ts
+├── screens/          # Page components
+│   └── ChooseSkip.tsx
+├── services/         # API services
+│   ├── api.ts
+│   └── skipService.ts
+├── store/            # Redux store configuration
+│   └── index.ts
+└── pages/            # Route pages
+    └── Index.tsx
+```
 
-This project is built with:
+### Technologies Used
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **React 18** - UI library
+- **Redux Toolkit** - State management
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **Axios** - HTTP client
+- **Vite** - Build tool
 
-## How can I deploy this project?
+## State Management
 
-Simply open [Lovable](https://lovable.dev/projects/57683713-d3d4-429a-8c2c-3ce962c0100b) and click on Share -> Publish.
+The app uses Redux Toolkit for state management with the following structure:
 
-## Can I connect a custom domain to my Lovable project?
+- **Skip State**: Manages skip options, selection, loading, and error states
+- **Async Thunks**: Handles API calls with proper loading and error handling
+- **Type Safety**: Full TypeScript integration with Redux
 
-Yes, you can!
+## API Integration
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Currently uses mock data for development. To integrate with a real API:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. Update the `baseURL` in `src/services/api.ts`
+2. Uncomment the API call in `src/services/skipService.ts`
+3. Remove or comment out the mock data
+
+## Skip Selection Features
+
+- **Price Calculation**: Automatically calculates final price including VAT
+- **Visual Selection**: Clear visual feedback for selected items
+- **Feature Tags**: Displays skip capabilities (road permitted, heavy waste)
+- **Responsive Cards**: Optimized for all screen sizes
+- **Selection Summary**: Shows selected skip details
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server with hot reload
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## Deployment
+
+The app can be deployed to any static hosting service:
+
+1. Run `npm run build`
+2. Deploy the `dist` folder to your hosting provider
+3. Configure your hosting to serve `index.html` for all routes
+
+## Contributing
+
+1. Follow the existing code structure and patterns
+2. Use TypeScript for all new components
+3. Follow the component naming convention
+4. Add proper error handling for new features
+5. Ensure responsive design for all new UI elements
+
+## License
+
+This project is licensed under the MIT License.
