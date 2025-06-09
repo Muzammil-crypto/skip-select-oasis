@@ -1,15 +1,8 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { fetchSkips, Skip } from '../../services/skipService';
+import { fetchSkips } from '../../services/skipService';
 
-export interface SkipState {
-  skips: Skip[];
-  selectedSkipId: number | null;
-  loading: boolean;
-  error: string | null;
-}
-
-const initialState: SkipState = {
+const initialState = {
   skips: [],
   selectedSkipId: null,
   loading: false,

@@ -7,6 +7,3 @@ export const store = configureStore({
     skips: skipReducer,
   },
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
