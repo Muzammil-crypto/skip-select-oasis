@@ -2,6 +2,7 @@
 import React from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { selectSkip } from '../features/skips/skipSlice';
+import { Check, Shield, Weight } from 'lucide-react';
 
 const SkipCard = ({ skip }) => {
   const dispatch = useAppDispatch();
@@ -17,52 +18,69 @@ const SkipCard = ({ skip }) => {
 
   return (
     <div
-      className={`relative bg-gray-800/50 backdrop-blur-sm rounded-xl border-2 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 group cursor-pointer ${
+      className={`relative bg-card backdrop-blur-sm rounded-xl border-2 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10 group cursor-pointer overflow-hidden ${
         isSelected
-          ? 'border-blue-500 shadow-lg shadow-blue-500/20 ring-2 ring-blue-500/30'
-          : 'border-gray-700 hover:border-blue-400/50'
+          ? 'border-primary/60 shadow-lg shadow-primary/20 ring-2 ring-primary/20'
+          : 'border-border hover:border-primary/30'
       }`}
       onClick={handleSelect}
     >
       {/* Selected indicator */}
       {isSelected && (
-        <div className="absolute -top-2 -right-2 bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold shadow-lg">
-          ✓
+        <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold shadow-lg z-10">
+          <Check className="w-4 h-4" />
+        </div>
+      )}
+
+      {/* Popular badge for middle sizes */}
+      {(skip.size === 6 || skip.size === 8) && (
+        <div className="absolute top-4 left-4 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold">
+          Popular
         </div>
       )}
       
       <div className="p-6">
         {/* Skip size header */}
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-white">
-            {skip.size} Yard Skip
-          </h3>
-          <div className="text-sm text-gray-300 bg-gray-700/50 px-3 py-1 rounded-full">
-            {skip.hire_period_days} days
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h3 className="text-2xl font-bold text-foreground">
+              {skip.size} Yard
+            </h3>
+            <p className="text-sm text-muted-foreground">Skip Bin</p>
+          </div>
+          <div className="text-right">
+            <div className="text-3xl font-bold text-foreground">
+              £{finalPrice}
+            </div>
+            <div className="text-xs text-muted-foreground">
+              inc. VAT ({skip.vat}%)
+            </div>
           </div>
         </div>
 
-        {/* Price */}
-        <div className="mb-4">
-          <div className="text-3xl font-bold text-white">
-            £{finalPrice}
-          </div>
-          <div className="text-sm text-gray-400">
-            inc. VAT ({skip.vat}%)
-          </div>
+        {/* Hire period */}
+        <div className="mb-6 p-3 bg-muted/30 rounded-lg border border-border/50">
+          <div className="text-sm text-muted-foreground">Hire Period</div>
+          <div className="text-lg font-semibold text-foreground">{skip.hire_period_days} Days</div>
         </div>
 
-        {/* Features/Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        {/* Features */}
+        <div className="space-y-3 mb-6">
           {skip.allowed_on_road && (
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-900/30 text-green-400 border border-green-500/30">
-              Road Permitted
-            </span>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                <Shield className="w-3 h-3 text-green-400" />
+              </div>
+              <span className="text-foreground">Road Placement Allowed</span>
+            </div>
           )}
           {skip.allows_heavy_waste && (
-            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-900/30 text-blue-400 border border-blue-500/30">
-              Heavy Waste OK
-            </span>
+            <div className="flex items-center gap-3 text-sm">
+              <div className="w-6 h-6 rounded-full bg-blue-500/20 flex items-center justify-center">
+                <Weight className="w-3 h-3 text-blue-400" />
+              </div>
+              <span className="text-foreground">Heavy Waste Permitted</span>
+            </div>
           )}
         </div>
 
@@ -70,8 +88,8 @@ const SkipCard = ({ skip }) => {
         <button
           className={`w-full py-3 px-4 rounded-lg font-medium transition-all duration-200 ${
             isSelected
-              ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30'
-              : 'bg-gray-700/50 text-gray-300 hover:bg-blue-500 hover:text-white hover:shadow-lg hover:shadow-blue-500/30'
+              ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+              : 'bg-muted text-muted-foreground hover:bg-primary hover:text-primary-foreground hover:shadow-lg hover:shadow-primary/30'
           }`}
           onClick={(e) => {
             e.stopPropagation();
