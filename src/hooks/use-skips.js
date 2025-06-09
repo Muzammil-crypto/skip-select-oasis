@@ -16,7 +16,6 @@ export const useSkips = () => {
       fetchSkips();
     }
   }, [fetchSkips, skips.length]);
-  console.log('useSkips hook rendered with skips in hook:', skips);
   return {
     skips,
     loading,
