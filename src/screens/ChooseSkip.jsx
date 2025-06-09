@@ -5,6 +5,7 @@ import { fetchSkipsAsync } from '../features/skips/skipSlice';
 import SkipCard from '../components/SkipCard';
 import Loader from '../components/Loader';
 import ErrorMessage from '../components/ErrorMessage';
+import Stepper from '../components/Stepper';
 
 const ChooseSkip = () => {
   const dispatch = useAppDispatch();
@@ -20,17 +21,19 @@ const ChooseSkip = () => {
   const selectedSkip = skips.find(skip => skip.id === selectedSkipId);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900">
+    <div className="min-h-screen bg-gray-900">
+      {/* Stepper */}
+      <Stepper />
+      
       {/* Header */}
-      <div className="bg-gradient-to-r from-gray-800/80 to-blue-800/80 backdrop-blur-sm border-b border-gray-700/50">
+      <div className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-white mb-4">
               Choose Your Skip Size
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              Select the perfect skip size for your waste disposal needs. 
-              All prices include VAT and delivery.
+              Select the skip size that best suits your needs
             </p>
           </div>
         </div>
