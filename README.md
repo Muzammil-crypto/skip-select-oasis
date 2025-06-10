@@ -38,37 +38,6 @@ The app will be available at `http://localhost:8080`
 - **Loading States**: Smooth loading indicators
 - **Accessibility**: Semantic HTML and proper ARIA labels
 
-## 🏗️ Architecture
-
-### Folder Structure
-
-```
-src/
-├── components/       # Reusable UI components
-│   ├── SkipCard.tsx
-│   ├── Loader.tsx
-│   └── ErrorMessage.tsx
-├── features/         # Redux slices and logic
-│   └── skips/
-│       └── skipSlice.ts
-├── hooks/            # Custom hooks
-│   └── redux.ts
-├── screens/          # Page components
-│   └── ChooseSkip.tsx
-├── services/         # API services
-│   ├── api.ts
-│   └── skipService.ts
-├── store/            # Redux store configuration
-│   └── index.ts
-└── pages/            # Route pages
-    └── Index.tsx
-└── utils/            # Utilities
-    └── constants.js
-└── api/            # Axios Client / Endpoints
-    └── apiClient.js
-    └── endPoints.js
-```
-
 ## 🛠️ Technologies Used
 
 - **React 18** - UI library
@@ -103,6 +72,7 @@ Using Endpoint provided by the REMWaste
 
 This project is designed with maintainability, scalability, and user experience in mind:
 
+
 ### Design Principles
 
 - **Component-based architecture**: UI built with reusable components for easy maintenance
@@ -118,6 +88,38 @@ This project is designed with maintainability, scalability, and user experience 
 - **Vite**: Fast hot reloading and optimized builds
 - **Clear folder structure**: Modular organization with Redux slices
 - **Mock data support**: Enables offline development and easy API transition
+
+
+## 🏗️ Architecture
+
+### Folder Structure
+
+```
+src/
+├── components/       # Reusable UI components
+│   ├── SkipCard.tsx
+│   ├── Loader.tsx
+│   └── ErrorMessage.tsx
+├── features/         # Redux slices and logic
+│   └── skips/
+│       └── skipSlice.ts
+├── hooks/            # Custom hooks
+│   └── redux.ts
+├── screens/          # Page components
+│   └── ChooseSkip.tsx
+├── services/         # API services
+│   ├── api.ts
+│   └── skipService.ts
+├── store/            # Redux store configuration
+│   └── index.ts
+└── pages/            # Route pages
+    └── Index.tsx
+└── utils/            # Utilities
+    └── constants.js
+└── api/            # Axios Client / Endpoints
+    └── apiClient.js
+    └── endPoints.js
+```
 
 ## 🚀 Development Commands
 
@@ -138,26 +140,6 @@ npm run preview
 ## 🌍 Deployment
 
 **Live Demo**: [https://waste-skip-eight.vercel.app/](https://waste-skip-eight.vercel.app/)
-
-### Deploy Your Own
-
-1. Run `npm run build`
-2. Deploy the `dist` folder to your hosting provider
-3. Configure hosting to serve `index.html` for all routes
-
-## 🤝 Contributing
-
-We welcome contributions! Please follow these guidelines:
-
-- Follow existing code structure and patterns
-- Use TypeScript for all new components
-- Follow the component naming convention
-- Add proper error handling for new features
-- Ensure responsive design for all new UI elements
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 🔗 Links
 
