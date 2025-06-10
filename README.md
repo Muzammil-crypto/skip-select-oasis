@@ -14,10 +14,10 @@ We recommend using Node.js 18.x or 20.x for optimal compatibility.
 
 ```bash
 # Clone the repository
-git clone <YOUR_GIT_URL>
+git clone https://github.com/Muzammil-crypto/skip-select-oasis
 
 # Navigate to project directory  
-cd <PROJECT_NAME>
+cd select-skip-oasis
 
 # Install dependencies
 npm install
