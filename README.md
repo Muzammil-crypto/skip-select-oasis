@@ -147,5 +147,3 @@ npm run preview
 - [Report Issues](https://github.com/Muzammil-crypto/skip-select-oasis/issues)
 
 ---
-
-**Built with ❤️ using React, Redux Toolkit, and TypeScript**
